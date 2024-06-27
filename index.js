@@ -1,3 +1,5 @@
+let formTag = document.querySelector("form");
+
 const getData = async () => {
   try {
     let res = await fetch("http://localhost:3000/employees");
@@ -17,16 +19,45 @@ const deleteData = async (id) => {
       // Re-fetch data and update table
       getData();
     } else {
-      console.log('Failed to delete');
+      console.log("Failed to delete");
     }
   } catch (err) {
     console.log(err);
   }
 };
 
+const postData = async (obj) => {
+  try {
+    let res = await fetch("http://localhost:3000/employees",{
+      method:"POST",
+      headers: {
+        'Content-type': 'application/json; charset=UTF-8' // Indicates the content 
+       },
+       body: JSON.stringify(obj) // We send data in JSON format
+    });
+    let data = await res.json();
+  console.log(data)
+  } catch (err) {
+    console.log(err);
+  }
+};
+
+const getFormData = (e) => {
+  e.preventDefault();
+  let obj = {
+    employeeName: document.getElementById("name").value,
+    employeeID: document.getElementById("employeeID").value,
+    department: document.getElementById("department").value,
+    experience: document.getElementById("exp").value,
+    email: document.getElementById("email").value,
+    mobile: document.getElementById("mbl").value,
+  };
+
+  postData(obj);
+};
 const appendData = (data) => {
   let tbody = document.querySelector("tbody");
-  tbody.innerHTML = ''; // Clear existing data
+  tbody.innerHTML = ""; // Clear existing data
 
   data.forEach((el) => {
     let tr = document.createElement("tr");
@@ -76,5 +107,7 @@ const appendData = (data) => {
     }
   });
 };
+
+formTag.addEventListener("submit", getFormData);
 
 window.onload = getData;
