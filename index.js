@@ -36,9 +36,12 @@ const appenData = (data) => {
     let td7 = document.createElement("td");
 
     // console.log(td1, td2, td3, td4, td5, td6)
+
     tr.append(td1, td2, td3, td4, td5, td6, td7);
+
     let tbody = document.querySelector("tbody");
     tbody.append(tr);
+
     if (el.experience < 2) {
       td7.innerHTML = "Fresher";
     } else if (el.experience >= 2 && el.experience <= 4) {
@@ -46,6 +49,7 @@ const appenData = (data) => {
     } else {
       td7.innerHTML = "Senior";
     }
+    
   });
 };
 
