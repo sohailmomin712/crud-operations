@@ -1,0 +1,46 @@
+{
+  "posts": [
+    {
+      "id": "1",
+      "title": "a title",
+      "views": 100
+    },
+    {
+      "id": "2",
+      "title": "another title",
+      "views": 200
+    }
+  ],
+  "employees": [
+    {
+      "id": "1",
+      "employeeName": "sohail",
+      "employeeID": "111",
+      "department": "frontend",
+      "experience": "2",
+      "email": "sohailmomin053@gmail.com",
+      "mobile": "7666434454"
+    },
+    {
+      "id": "17cd",
+      "employeeName": "sufi",
+      "employeeID": "111",
+      "department": "frontend",
+      "experience": "2",
+      "email": "sohailmomin053@gmail.com",
+      "mobile": "7666434454"
+    },
+    {
+      "id": "3",
+      "employeeName": "nadim",
+      "employeeID": "111",
+      "department": "backend",
+      "experience": "2",
+      "email": "sohailmomin053@gmail.com",
+      "mobile": "7666434454"
+    }
+  ],
+  "profile": {
+    "name": "typicode"
+  }
+}
