@@ -13,31 +13,13 @@
   ],
   "employees": [
     {
-      "id": "1",
-      "employeeName": "sohail",
-      "employeeID": "111",
+      "id": "2",
+      "employeeName": "basharat",
+      "employeeID": "124",
       "department": "frontend",
       "experience": "2",
-      "email": "sohailmomin053@gmail.com",
-      "mobile": "7666434454"
-    },
-    {
-      "id": "17cd",
-      "employeeName": "sufi",
-      "employeeID": "112",
-      "department": "frontend",
-      "experience": "2",
-      "email": "sohailmomin053@gmail.com",
-      "mobile": "7666434454"
-    },
-    {
-      "id": "3",
-      "employeeName": "nadim",
-      "employeeID": "113",
-      "department": "backend",
-      "experience": "2",
-      "email": "sohailmomin053@gmail.com",
-      "mobile": "7666434454"
+      "email": "sufi@gmail.com",
+      "mobile": "8055786787"
     }
   ],
   "profile": {

@@ -1,8 +1,29 @@
-{
-  "employee-name": "sohail",
-  "employee-ID": "111",
-  "department": "frontend",
-  "experience": "2",
-  "email": "sohailmomin053@gmail.com",
-  "mobile": "7666434454"
-}
+[
+  {
+    "id": "2",
+    "employeeName": "basharat",
+    "employeeID": "124",
+    "department": "frontend",
+    "experience": "2",
+    "email": "sufi@gmail.com",
+    "mobile": "8055786787"
+  },
+  {
+    "id": "3",
+    "employeeName": "ali",
+    "employeeID": "125",
+    "department": "frontend",
+    "experience": "2",
+    "email": "sufi@gmail.com",
+    "mobile": "8055786787"
+  },
+  {
+    "id": "4",
+    "employeeName": "azim",
+    "employeeID": "126",
+    "department": "frontend",
+    "experience": "2",
+    "email": "sufi@gmail.com",
+    "mobile": "8055786787"
+  }
+],

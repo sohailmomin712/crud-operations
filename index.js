@@ -2,19 +2,36 @@ const getData = async () => {
   try {
     let res = await fetch("http://localhost:3000/employees");
     let data = await res.json();
-    appenData(data);
-    // console.log(data);
+    appendData(data);
   } catch (err) {
     console.log(err);
   }
 };
 
-const appenData = (data) => {
-  let formTag = document.querySelector("form");
+const deleteData = async (id) => {
+  try {
+    const res = await fetch(`http://localhost:3000/employees/${id}`, {
+      method: "DELETE",
+    });
+    if (res.ok) {
+      // Re-fetch data and update table
+      getData();
+    } else {
+      console.log('Failed to delete');
+    }
+  } catch (err) {
+    console.log(err);
+  }
+};
+
+const appendData = (data) => {
+  let tbody = document.querySelector("tbody");
+  tbody.innerHTML = ''; // Clear existing data
 
   data.forEach((el) => {
-    // console.log(el);
     let tr = document.createElement("tr");
+    tr.setAttribute("id", el.id);
+
     let td1 = document.createElement("td");
     td1.innerHTML = el.employeeName;
 
@@ -35,11 +52,19 @@ const appenData = (data) => {
 
     let td7 = document.createElement("td");
 
-    // console.log(td1, td2, td3, td4, td5, td6)
+    let td8 = document.createElement("button");
+    td8.addEventListener("click", (e) => {
+      e.preventDefault(); // Prevent default behavior
 
-    tr.append(td1, td2, td3, td4, td5, td6, td7);
+      deleteData(el.id);
+    });
+    td8.innerHTML = "Delete";
+    td8.style.background = "green";
+    td8.style.color = "white";
+    td8.setAttribute("type", "button"); // Explicitly set type to button
 
-    let tbody = document.querySelector("tbody");
+    tr.append(td1, td2, td3, td4, td5, td6, td7, td8);
+
     tbody.append(tr);
 
     if (el.experience < 2) {
@@ -49,8 +74,7 @@ const appenData = (data) => {
     } else {
       td7.innerHTML = "Senior";
     }
-    
   });
 };
 
-getData();
+window.onload = getData;
