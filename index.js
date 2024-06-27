@@ -17,6 +17,21 @@ const appenData = (data) => {
     let tr = document.createElement("tr");
     let td1 = document.createElement("td");
     td1.innerHTML = el.employeeName;
+
+    let td2 = document.createElement("td");
+    td2.innerHTML = el.employeeID;
+
+    let td3 = document.createElement("td");
+    td2.innerHTML = el.department;
+
+    let td4 = document.createElement("td");
+    td2.innerHTML = el.experience;
+
+    let td5 = document.createElement("td");
+    td2.innerHTML = el.email;
+
+    let td6 = document.createElement("td");
+    td2.innerHTML = el.mobile;
   });
 };
 
