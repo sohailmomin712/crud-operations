@@ -21,7 +21,6 @@
       "email": "sohailmomin053@gmail.com",
       "mobile": "4545454"
     },
-
     {
       "id": "5555",
       "employeeName": "ali",
@@ -30,6 +29,15 @@
       "experience": "2",
       "email": "ali@gmail.com",
       "mobile": "55555555"
+    },
+    {
+      "id": "ed96",
+      "employeeName": "nadim maniyar",
+      "employeeID": "2222",
+      "department": "Operations",
+      "experience": "4",
+      "email": "nadim@gmail.com",
+      "mobile": "515115151"
     }
   ],
   "profile": {
