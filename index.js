@@ -1,14 +1,35 @@
-let formTag=document.querySelector("form")
+let formTag = document.querySelector("form");
 
-const appendData = (data) => {
+//step1:creating a async function to get data from api//
 
-
-
-  let tr =document.createElement("tr")
-
-  let td1=document.createElement("td")
-
-
+const getData = async () => {
+  //add try block//
+  try {
+    //fetch the api//
+    let res = await fetch("http://localhost:3000/employees");
+    let data = await res.json(); //data is in the form of chunks//
+    console.log(data);
+    //check if the api data is getting or not//
+  } catch (err) {
+    console.log(err);
+  }
 };
 
-formTag.addEventListener("click",appendData())
+//step2: get the data from the form i.e from frontend//
+
+const getformData = (e) => {
+  e.preventDefault();
+  let formObj = {
+    employeeName: document.querySelector("#name").value,
+    employeeID: document.querySelector("#employeeID").value,
+    department: document.querySelector("#department").value,
+    experience: document.querySelector("#exp").value,
+    email: document.querySelector("#email").value,
+    mobile: document.querySelector("mbl").value,
+  };
+  console.log(formObj);
+};
+
+formTag.addEventListener("click", getFormData);
+
+window.onload = getData;
