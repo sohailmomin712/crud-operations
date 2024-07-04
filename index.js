@@ -18,8 +18,24 @@ const getData = async () => {
   }
 };
 
-//step2: get the data from the form i.e from frontend//
+//step 4:create async function to delete data from backend and frontend//
 
+const deleteData = async (id) => {
+  try {
+    const res = await fetch(`http://localhost:3000/employees/${id}`, {
+      method: "DELETE",
+    });
+    if (res.ok) {
+      getData();
+      //if everything is alright update and re-fetch the data//
+    }
+    //cause we are going to delete id from employees object//
+  } catch (err) {
+    console.log(err);
+  }
+};
+
+//step2: get the data from the form i.e from frontend//
 const getformData = (e) => {
   e.preventDefault();
   let formObj = {
@@ -37,12 +53,15 @@ const getformData = (e) => {
 //step3:write a function to append the data from backend to Ui//
 const appendData = (data) => {
   let tbody = document.querySelector("tbody");
+  tbody.innerHTML = "";
+  //clearing the previous data//
   data.forEach((el) => {
     console.log(el);
     //  will return the object from data
     //create tr and append tds inside it//
     let tr = document.createElement("tr");
-
+    //creating id to delete the row using id//
+    tr.setAttribute("id", el.id);
     let td1 = document.createElement("td");
     td1.innerHTML = el.employeeName;
 
@@ -62,7 +81,23 @@ const appendData = (data) => {
     td6.innerHTML = el.mobile;
 
     let td7 = document.createElement("td");
-    tr.append(td1, td2, td3, td4, td5, td6, td7);
+
+    let td8 = document.createElement("td");
+    td8.innerHTML = "Delete";
+    td8.style.background = "red";
+    td8.style.color = "white";
+    td8.addEventListener("click", (e) => {
+      //attach the function cause we dont want invoke it immediately/
+      e.preventDefault(); // Prevent default behavior
+
+      deleteData(el.id); //we are going to delete the whole row using id//
+    });
+
+    let td9 = document.createElement("td");
+    td9.innerHTML = "Edit";
+    td9.style.background = "green";
+    td9.style.color = "white";
+    tr.append(td1, td2, td3, td4, td5, td6, td7, td8, td9);
     tbody.append(tr);
 
     //check experience to assign role
